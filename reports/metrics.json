@@ -1,0 +1,252 @@
+{
+  "data": {
+    "rows": 163987,
+    "bad_rate": 0.1830388994249544,
+    "train": 98391,
+    "early_stop": 16399,
+    "calibration": 16399,
+    "test": 32798
+  },
+  "models_on_test": {
+    "logistic_regression": {
+      "auc": 0.68063468421291,
+      "gini": 0.3612693684258199,
+      "ks": 0.2647759096131476,
+      "brier": 0.1397505167868239,
+      "ece": 0.005096753997151281,
+      "mean_predicted": 0.18318522111507113,
+      "observed_rate": 0.18302945301542778,
+      "n": 32798
+    },
+    "lightgbm_unconstrained": {
+      "auc": 0.6906927950467758,
+      "gini": 0.38138559009355166,
+      "ks": 0.28213904492674985,
+      "brier": 0.13875428236410384,
+      "ece": 0.004067356421106421,
+      "mean_predicted": 0.1825779174369882,
+      "observed_rate": 0.18302945301542778,
+      "n": 32798
+    },
+    "lightgbm_monotone": {
+      "auc": 0.6878915024045482,
+      "gini": 0.37578300480909643,
+      "ks": 0.2779994838060226,
+      "brier": 0.13902395175999419,
+      "ece": 0.004845152711802042,
+      "mean_predicted": 0.18236642115471516,
+      "observed_rate": 0.18302945301542778,
+      "n": 32798
+    },
+    "lightgbm_monotone_final": {
+      "auc": 0.6878915024045482,
+      "gini": 0.37578300480909643,
+      "ks": 0.2779994838060226,
+      "brier": 0.13902395175999419,
+      "ece": 0.004845152711802042,
+      "mean_predicted": 0.18236642115471516,
+      "observed_rate": 0.18302945301542778,
+      "n": 32798,
+      "auc_95ci": [
+        0.6806462439184745,
+        0.6949194817617071
+      ]
+    }
+  },
+  "benchmark_lendingclub_rate_auc": 0.6719321623010103,
+  "auc_differences": {
+    "final_vs_logistic": {
+      "diff": 0.007256818191638259,
+      "ci95": [
+        0.0050424953042428585,
+        0.009129844157783822
+      ]
+    },
+    "final_vs_unconstrained": {
+      "diff": -0.002801292642227615,
+      "ci95": [
+        -0.004471076237583948,
+        -0.0011562240626766256
+      ]
+    },
+    "final_vs_lendingclub_rate": {
+      "diff": 0.015959340103537945,
+      "ci95": [
+        0.008987124035107166,
+        0.023765457894396543
+      ]
+    }
+  },
+  "isotonic_kept": false,
+  "calibration_split_raw": {
+    "auc": 0.6854875562949883,
+    "gini": 0.3709751125899765,
+    "ks": 0.2728840846652151,
+    "brier": 0.13921238303775085,
+    "ece": 0.007006601045002081,
+    "mean_predicted": 0.18151867365074897,
+    "observed_rate": 0.18299896335142388,
+    "n": 16399
+  },
+  "file_order_holdout": {
+    "auc": 0.6786928267576949,
+    "gini": 0.35738565351538987,
+    "ks": 0.26472953486523265,
+    "brier": 0.1275320487807802,
+    "ece": 0.03410882858482478,
+    "mean_predicted": 0.19222822610906407,
+    "observed_rate": 0.15811939752423929,
+    "n": 32798
+  },
+  "policy": {
+    "chosen_on": "calibration split, LGD 65%",
+    "cutoff_pd": 0.4587410846749968,
+    "test_approval_rate": 0.9789011525092993,
+    "test_bad_rate_approved": 0.17622874229116053,
+    "test_bad_rate_all": 0.18302945301542778,
+    "note": "Applied to LendingClub-funded loans only; declined applicants have no observed outcome.",
+    "lgd_sensitivity": {
+      "0.50": {
+        "value_per_loan_approve_all": 1691.8243032164116,
+        "value_per_loan_with_cutoff": 1686.4987929687227,
+        "lift_per_loan": -5.325510247688953
+      },
+      "0.65": {
+        "value_per_loan_approve_all": 1302.4554392612924,
+        "value_per_loan_with_cutoff": 1325.421173906585,
+        "lift_per_loan": 22.965734645292514
+      },
+      "0.80": {
+        "value_per_loan_approve_all": 913.0865753061731,
+        "value_per_loan_with_cutoff": 964.3435548444469,
+        "lift_per_loan": 51.256979538273754
+      }
+    }
+  },
+  "drift": {
+    "random_test_split": {
+      "score_psi": 0.00017252899393202525,
+      "score_status": "stable",
+      "largest_feature": "loan_to_income",
+      "largest_feature_psi": 0.0005672572146405686,
+      "largest_feature_status": "stable",
+      "mean_predicted_pd": 0.18236642115471516
+    },
+    "file_order_holdout": {
+      "score_psi": 0.0009897569493375112,
+      "score_status": "stable",
+      "largest_feature": "longest_credit_length",
+      "largest_feature_psi": 0.06088420770569674,
+      "largest_feature_status": "stable",
+      "mean_predicted_pd": 0.1818116276299552
+    },
+    "simulated_downturn": {
+      "score_psi": 0.291823698112177,
+      "score_status": "act",
+      "largest_feature": "dti",
+      "largest_feature_psi": 0.4596342570263353,
+      "largest_feature_status": "act",
+      "mean_predicted_pd": 0.24372587347107694
+    }
+  },
+  "segments": {
+    "term": {
+      "36 months": {
+        "n": 25909,
+        "auc": 0.6661915154249047,
+        "observed": 0.15280404492647343,
+        "predicted": 0.15379325473670408
+      },
+      "60 months": {
+        "n": 6889,
+        "auc": 0.6405568716311325,
+        "observed": 0.29670489185658294,
+        "predicted": 0.2898279059455773
+      }
+    },
+    "home_ownership": {
+      "MORTGAGE": {
+        "n": 15842,
+        "auc": 0.7001418835604181,
+        "observed": 0.16456255523292512,
+        "predicted": 0.1644576109133783
+      },
+      "OWN": {
+        "n": 2721,
+        "auc": 0.6815170325242847,
+        "observed": 0.18779860345461227,
+        "predicted": 0.18570907844663764
+      },
+      "RENT": {
+        "n": 14207,
+        "auc": 0.6708434159298083,
+        "observed": 0.20257619483353276,
+        "predicted": 0.2017703576482341
+      }
+    },
+    "purpose": {
+      "car": {
+        "n": 584,
+        "auc": 0.6418999565972223,
+        "observed": 0.1232876712328767,
+        "predicted": 0.12329110629743127
+      },
+      "credit_card": {
+        "n": 6118,
+        "auc": 0.6951790681283275,
+        "observed": 0.16214449166394246,
+        "predicted": 0.15805140963374564
+      },
+      "debt_consolidation": {
+        "n": 18630,
+        "auc": 0.681474787625687,
+        "observed": 0.19119699409554483,
+        "predicted": 0.18844228481785477
+      },
+      "home_improvement": {
+        "n": 1933,
+        "auc": 0.670485330741663,
+        "observed": 0.15675116399379202,
+        "predicted": 0.1502693097236345
+      },
+      "major_purchase": {
+        "n": 961,
+        "auc": 0.7122326775021386,
+        "observed": 0.13111342351716962,
+        "predicted": 0.14167919080901112
+      },
+      "other": {
+        "n": 2200,
+        "auc": 0.7030460086431833,
+        "observed": 0.20363636363636364,
+        "predicted": 0.21409009185009456
+      },
+      "small_business": {
+        "n": 730,
+        "auc": 0.6644827494243881,
+        "observed": 0.30273972602739724,
+        "predicted": 0.3136385622262275
+      }
+    }
+  },
+  "shap_importance": {
+    "revol_util": 0.249,
+    "term": 0.2482,
+    "log_income": 0.1755,
+    "loan_to_income": 0.1656,
+    "dti": 0.1455,
+    "purpose": 0.1227,
+    "home_ownership": 0.0818,
+    "longest_credit_length": 0.0587,
+    "delinq_2yrs": 0.047,
+    "total_acc": 0.0414,
+    "loan_amnt": 0.0398,
+    "emp_length": 0.0391,
+    "verification_status": 0.0136,
+    "emp_length_missing": 0.0027
+  },
+  "best_iterations": {
+    "unconstrained": 347,
+    "monotone": 243
+  }
+}
